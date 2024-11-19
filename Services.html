@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U-Pintar Services</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #FFF6F9;
+            color: #333;
+        }
+
+        /* Navigation Bar Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #FF6F91;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            z-index: 1000;
+        }
+
+        .menu-icon {
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .navbar .logo {
+            width: 70px;
+            height: auto;
+        }
+
+        .navbar .register-btn {
+            background-color: #FFD3B6;
+            color: #FF6F91;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            position: fixed;
+            left: -250px;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #FF6F91;
+            transition: left 0.3s ease;
+            z-index: 999;
+            padding-top: 60px;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 15px 20px;
+            border-bottom: 1px solid #FFD3B6;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        /* Dropdown Menu Styles */
+        .sidebar ul li .dropdown-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2em;
+            padding: 0;
+            width: 100%;
+            text-align: left;
+        }
+
+        .sidebar ul li .dropdown-container {
+            display: none;
+            background-color: #FF8FA8;
+            padding-left: 20px;
+        }
+
+        .sidebar ul li .dropdown-container a {
+            padding: 10px 0;
+            display: block;
+            font-size: 1em;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 70px;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 60px 20px;
+        }
+
+        .section img {
+            width: 100%;
+            height: auto;
+        }
+
+        .section h1, .section h2 {
+            text-align: center;
+            color: #FF6F91;
+        }
+
+        .section p {
+            text-align: justify;
+            padding: 20px;
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        /* Different Background Colors for Sections */
+        .section-1 {
+            background-color: #FFD3B6;
+        }
+
+        .section-2 {
+            background-color: #FFDAC1;
+        }
+
+        .section-3 {
+            background-color: #E2F0CB;
+        }
+
+        .section-4 {
+            background-color: #B5EAD7;
+        }
+
+        .section-5 {
+            background-color: #C7CEEA;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #FF6F91;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Styles */
+        @media (min-width: 768px) {
+            .section-4-left, .section-4-right {
+                width: 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="menu-icon" onclick="toggleSidebar()">&#9776;</div>
+        <img src="FYP2 Pic/Logo.png" alt="Logo" class="logo">
+        <button class="register-btn" onclick="window.location.href='enrollment.html'">Register Now</button>
+    </nav>
+
+    <!-- Sidebar Menu -->
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li>
+                <button class="dropdown-btn">Admission
+                    <span>&#9660;</span>
+                </button>
+                <div class="dropdown-container">
+                    <a href="enrollment.html">Enrollment</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </li>
+            <li><a href="Branch.html">Branch Location</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+        <!-- First Section (Same as Home Page's first section) -->
+        <div class="section section-1" id="home">
+            <h1>SERVICES</h1>
+            
+        </div>
+
+        <!-- Second Section -->
+        <div class="section section-2" id="service1">
+            <h2>TADIKA ISLAM UNI PINTAR (5-6 tahun)</h2>
+            <p>Uni Pintar Islamic Kindergarten is open to children aged 5 and 6 years. Our program nurtures independence and resilience. By primary school, students will have learned to read, count, write, and more.</p>
+        <ul>
+            <li>Hours: 8 am to 12:30 pm</li>
+            <li>Basic Subjects: Malaysian, English, Mathematics, Science, Physical Education, Creative Art, Speed Reading Class, Storytelling</li>
+            <li>Islamic Education:
+                <ul>
+                    <li>Arabic</li>
+                    <li>Al-Quran</li>
+                    <li>Iqra</li>
+                    <li>Practice praying 5 times a day</li>
+                    <li>Memorization of daily prayers</li>
+                    <li>Verse memorization</li>
+                    <li>Jawi</li>
+                </ul>
+            </li>
+        </ul>
+        </div>
+
+        <!-- Third Section -->
+        <div class="section section-3" id="service2">
+            <h2>TASKA U PINTAR (3-4 tahun)</h2>
+            <p>Our nursery program builds social skills, early math skills, and literacy for children aged 3-4. The curriculum includes group activities aligned with the PERMATA Negara curriculum.</p>
+        <ul>
+            <li>SMART Programs:
+                <ul>
+                    <li>Study Smart</li>
+                    <li>Kedai Pintar</li>
+                    <li>Smart Kitchen</li>
+                    <li>Smart Reading</li>
+                    <li>Smart Personality</li>
+                    <li>Solat Pintar</li>
+                    <li>Nasyid Pintar</li>
+                </ul>
+            </li>
+        </ul>
+        </div>
+
+        <!-- Fourth Section -->
+        <div class="section section-4" id="service3">
+            <h2>TAMAN ASUHAN U PINTAR (0-2 tahun)</h2>
+            <p>Providing daycare services from 6:30 am to 6:30 pm, including meal provision, hygiene management, and thematic activities. Services focus on early development as defined by the Social Welfare Department.</p>
+        </div>
+
+        <!-- Fifth Section -->
+        <div class="section section-5" id="service4">
+            <h2>TRANSIT U PINTAR</h2>
+            <p>Transit services for primary school children, including prayer times, study sessions, reading, and playtime with building games like LEGO.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="admission.html">Admission</a>
+        <a href="Branch.html">Branches</a>
+    </footer>
+
+    <!-- JavaScript for Menu and Collapsible -->
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+
+        // Dropdown functionality in sidebar
+        var dropdownBtns = document.getElementsByClassName('dropdown-btn');
+        for (var i = 0; i < dropdownBtns.length; i++) {
+            dropdownBtns[i].addEventListener('click', function () {
+                this.classList.toggle('active');
+                var dropdownContent = this.nextElementSibling;
+                if (dropdownContent.style.display === 'block') {
+                    dropdownContent.style.display = 'none';
+                } else {
+                    dropdownContent.style.display = 'block';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FAQ - U-Pintar Kindergarten</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #FFF6F9;
+            color: #333;
+        }
+
+        /* Navigation Bar Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #FF6F91;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            z-index: 1000;
+        }
+
+        .navbar .menu-icon {
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .navbar .logo {
+            width: 70px;
+            height: auto;
+        }
+
+        .navbar .register-btn {
+            background-color: #FFD3B6;
+            color: #FF6F91;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .navbar .register-btn:hover {
+            background-color: #FFEEDD;
+        }
+
+        /* Sidebar Menu Styles */
+        .sidebar {
+            position: fixed;
+            left: -250px;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #FF6F91;
+            overflow-y: auto;
+            transition: left 0.3s ease;
+            z-index: 999;
+            padding-top: 60px;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 15px 20px;
+            border-bottom: 1px solid #FFD3B6;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            display: block;
+        }
+
+        .sidebar ul li:hover {
+            background-color: #FFD3B6;
+        }
+
+        /* Dropdown Menu Styles */
+        .sidebar ul li .dropdown-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2em;
+            padding: 0;
+            width: 100%;
+            text-align: left;
+        }
+
+        .sidebar ul li .dropdown-container {
+            display: none;
+            background-color: #FF8FA8;
+            padding-left: 20px;
+        }
+
+        .sidebar ul li .dropdown-container a {
+            padding: 10px 0;
+            display: block;
+            font-size: 1em;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 70px; /* Adjusted for the fixed navbar */
+        }
+
+        /* Sections */
+        .section {
+            padding: 60px 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background-color: #FFD3B6;
+        }
+
+        .section h2 {
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            color: #FF6F91;
+        }
+
+        /* FAQ List */
+        .faq-item {
+            background-color: #FFEEDD;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 10px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-item h3 {
+            cursor: pointer;
+            margin: 0;
+            font-size: 1.5em;
+            color: #FF6F91;
+        }
+
+        .faq-answer {
+            display: none;
+            margin-top: 10px;
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        /* Cute Animal Images */
+        .cute-animals {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .cute-animals img {
+            width: 80px;
+            height: auto;
+            border-radius: 10px;
+            margin: 0 10px;
+            transition: transform 0.3s;
+        }
+
+        .cute-animals img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #FF6F91;
+            color: white;
+            text-align:
+            center;
+            padding: 20px 0;
+        }
+
+        footer a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="menu-icon" onclick="toggleSidebar()">&#9776;</div>
+        <img src="FYP2 Pic/Logo.png" alt="Logo" class="logo">
+        <button class="register-btn" onclick="window.location.href='enrollment.html'">Register Now</button>
+    </nav>
+
+    <!-- Sidebar Menu -->
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li>
+                <button class="dropdown-btn">Admission
+                    <span>&#9660;</span>
+                </button>
+                <div class="dropdown-container">
+                    <a href="enrollment.html">Enrollment</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </li>
+            <li><a href="Branch.html">Branch Location</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+        <!-- FAQ Section -->
+        <div class="section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h3 onclick="toggleAnswer(this)">What is U-Pintar Kindergarten?</h3>
+                <div class="faq-answer">
+                    <p>U-Pintar Kindergarten is a nurturing and educational environment where children can grow, learn, and play. Our curriculum focuses on holistic development through fun and engaging activities.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h3 onclick="toggleAnswer(this)">What age group do you accept?</h3>
+                <div class="faq-answer">
+                    <p>We accept children aged 3 to 6 years old. Our programs are tailored to meet the developmental needs of each age group.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h3 onclick="toggleAnswer(this)">How do I enroll my child?</h3>
+                <div class="faq-answer">
+                    <p>Enrollment can be done through our website or by visiting our kindergarten. Please fill out the enrollment form to secure your child's spot.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h3 onclick="toggleAnswer(this)">What is the daily schedule like?</h3>
+                <div class="faq-answer">
+                    <p>Our daily schedule includes a mix of structured activities, playtime, and snack breaks, ensuring a balanced day for the children.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h3 onclick="toggleAnswer(this)">Are meals provided?</h3>
+                <div class="faq-answer">
+                    <p>Yes, we provide nutritious meals and snacks to ensure the children have the energy they need to thrive throughout the day.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="admission.html">Admission</a>
+        <a href="Branch.html">Branches</a>
+    </footer>
+
+    <!-- JavaScript for FAQ Toggle -->
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+
+        // Dropdown functionality in sidebar
+        var dropdownBtns = document.getElementsByClassName('dropdown-btn');
+        for (var i = 0; i < dropdownBtns.length; i++) {
+            dropdownBtns[i].addEventListener('click', function () {
+                this.classList.toggle('active');
+                var dropdownContent = this.nextElementSibling;
+                if (dropdownContent.style.display === 'block') {
+                    dropdownContent.style.display = 'none';
+                } else {
+                    dropdownContent.style.display = 'block';
+                }
+            });
+        }
+
+        function toggleAnswer(element) {
+            const answer = element.nextElementSibling;
+            answer.style.display = answer.style.display === "block" ? "none" : "block";
+        }
+    </script>
+</body>
+</html>

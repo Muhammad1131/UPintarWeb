@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            display: none; /* Hide content by default */
+        }
+        .admin-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .error-message {
+            color: red;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div id="content" class="admin-content">
+        <h1>Welcome to the Admin Page</h1>
+        <p>This is a secure section of the website.</p>
+        <!-- Add your admin tools and content here -->
+    </div>
+    <div id="error" class="error-message"></div>
+    <script>
+        // Define the secret access key
+        const secretKey = "secretKey123";
+
+        // Extract the key from the URL query string
+        const urlParams = new URLSearchParams(window.location.search);
+        const key = urlParams.get("key");
+
+        // Validate the key
+        if (key === secretKey) {
+            document.body.style.display = "block"; // Show the admin content
+        } else {
+            document.body.style.display = "block";
+            document.getElementById("content").style.display = "none"; // Hide the admin content
+            document.getElementById("error").textContent = "Access Denied: Invalid Key.";
+        }
+    </script>
+</body>
+</html>

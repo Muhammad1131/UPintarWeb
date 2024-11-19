@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>U-Pintar Branch Location</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #FFF6F9;
+            color: #333;
+        }
+
+        /* Navigation Bar Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #FF6F91;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            z-index: 1000;
+        }
+
+        .navbar .menu-icon {
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .navbar .logo {
+            width: 70px;
+            height: auto;
+        }
+
+        .navbar .register-btn {
+            background-color: #FFD3B6;
+            color: #FF6F91;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .navbar .register-btn:hover {
+            background-color: #FFEEDD;
+        }
+
+        /* Sidebar Menu Styles */
+        .sidebar {
+            position: fixed;
+            left: -250px;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #FF6F91;
+            overflow-y: auto;
+            transition: left 0.3s ease;
+            z-index: 999;
+            padding-top: 60px;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 15px 20px;
+            border-bottom: 1px solid #FFD3B6;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            display: block;
+        }
+
+        .sidebar ul li:hover {
+            background-color: #FFD3B6;
+        }
+
+        /* Dropdown Menu Styles */
+        .sidebar ul li .dropdown-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2em;
+            padding: 0;
+            width: 100%;
+            text-align: left;
+        }
+
+        .sidebar ul li .dropdown-container {
+            display: none;
+            background-color: #FF8FA8;
+            padding-left: 20px;
+        }
+
+        .sidebar ul li .dropdown-container a {
+            padding: 10px 0;
+            display: block;
+            font-size: 1em;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 70px; /* Adjusted for the fixed navbar */
+        }
+
+        /* Section Styles */
+        .section {
+            display: flex;
+            align-items: center;
+            padding: 40px 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        .section h2 {
+            text-align: center;
+            width: 100%;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+
+        .section img {
+            width: 40%;
+            height: auto;
+            border-radius: 15px;
+        }
+
+        .section .text {
+            width: 60%;
+            padding: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        /* Specific Section Colors */
+        .section-1 {
+            background-color: #FFD3B6;
+        }
+        
+        .section-2 {
+            background-color: #FFF0D1;
+        }
+
+        .section-3 {
+            background-color: #FF8FA8;
+        }
+
+        .section-4 {
+            background-color: #FF6F91;
+            color: white;
+        }
+
+        /* Fifth Section - Contact Us */
+        .section-5 {
+            background-color: #FFEEDD;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 40px 20px;
+        }
+
+        .section-5-leftside {
+            float: left;
+            width: 50%;
+        }
+
+        .section-5-rightside {
+            float: right;
+            width: 50%;
+        }
+
+        .collapsible {
+            background-color: #FF6F91;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 90%;
+            border: none;
+            outline: none;
+            font-size: 1.2em;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .content {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            background-color: #FFF0D1;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #FF6F91;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .section img {
+                width: 80%;
+            }
+
+            .section .text {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+     <!-- Navigation Bar -->
+     <nav class="navbar">
+        <div class="menu-icon" onclick="toggleSidebar()">&#9776;</div>
+        <img src="FYP2 Pic/Logo.png" alt="Logo" class="logo">
+        <button class="register-btn" onclick="window.location.href='enrollment.html'">Register Now</button>
+    </nav>
+
+    <!-- Sidebar Menu -->
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li>
+                <button class="dropdown-btn">Admission
+                    <span>&#9660;</span>
+                </button>
+                <div class="dropdown-container">
+                    <a href="enrollment.html">Enrollment</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </li>
+            <li><a href="Branch.html">Branch Location</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+        <!-- First Section - Title -->
+        <div class="section section-1">
+            <h2>Branch Location</h2>
+        </div>
+
+        <!-- Second Section -->
+        <div class="section section-2">
+            <img src="FYP2 Pic/Bp1.jpg" alt="Branch Image 1">
+            <div class="text">
+                <h3>TADIKA dan TASKA U PINTAR TAMAN PINGGIRAN PUTRA</h3>
+                <p>No. 9, Jalan PP2, Taman Pinggiran Putra, Bandar Putra Permai, 43300 Seri Kembangan, Selangor.</p>
+            </div>
+        </div>
+
+        <!-- Third Section -->
+        <div class="section section-3">
+            <img src="FYP2 Pic/Bp2.jpg" alt="Branch Image 2">
+            <div class="text">
+                <h3>TASKA U PINTAR PUCHONG PERDANA</h3>
+                <p>No. 1 Jalan Dahlia 2, Puchong Perdana, 47100 Puchong, Selangor.</p>
+            </div>
+        </div>
+
+        <!-- Fourth Section -->
+        <div class="section section-4">
+            <img src="FYP2 Pic/Bp3.jpg" alt="Branch Image 3">
+            <div class="text">
+                <h3>TASKA U PINTAR KOTA PERDANA</h3>
+                <p>No. 40, Jln. KP 2/4, Kota Perdana, Bandar Putra Permai, 43300 Seri Kembangan, Selangor.</p>
+            </div>
+        </div>
+
+        <!-- Fifth Section - Phone Number -->
+        <div class="section-5">
+            <div class="section-5-leftside">
+                <h2>CONTACT US</h2>
+                <p>&nbsp;</p>
+                <h3>LOCATION</h3>
+                <p>NO 1, JALAN INDAH 3/6,</p>
+                <p>TAMAN PUCHONG INDAH,</p>
+                <p>47100 PUCHONG,</p>
+                <p>SELANGOR.</p>
+                <p>&nbsp;</p>
+                <h3>OFFICE NO. TEL. :</h3>
+                <p>(03-89591234)</p>
+                <p>(019-3701234)</p>
+                <p>(010-2345460)</p>
+                <p>&nbsp;</p>
+                <button class="collapsible">Hours of Work</button>
+                <div class="content">
+                    <p>Monday - Friday: 9 AM - 5 PM</p>
+                    <p>Saturday: 10 AM - 4 PM</p>
+                    <p>Sunday: Closed</p>
+                </div>
+            </div>
+            <div class="section-5-rightside">
+                <a href="https://www.google.com/maps/place/1,+Jalan+Indah+3%2F6,+Taman+Puchong+Indah,+47100+Puchong,+Selangor/@3.0102189,101.604127,17z/data=!4m6!3m5!1s0x31cdb368abe8c375:0x7c69fa64f87c6c80!8m2!3d3.0102189!4d101.604127!16s%2Fg%2F11jx0rl7js?entry=ttu&g_ep=EgoyMDI0MTExMy4xIKXMDSoASAFQAw%3D%3D"><img src="FYP2 Pic/Cp1.jpg" alt="Contact Image" style="width: 70%; border-radius: 15px;"></a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <a href="index.html">Home</a>
+        <a href="About.html">About</a>
+        <a href="Services.html">Services</a>
+        <a href="Admission.html">Admission</a>
+        <a href="Branch.html">Branches</a>
+    </footer>
+
+    <!-- JavaScript for Menu and Collapsible -->
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+
+        // Dropdown functionality in sidebar
+        var dropdownBtns = document.getElementsByClassName('dropdown-btn');
+        for (var i = 0; i < dropdownBtns.length; i++) {
+            dropdownBtns[i].addEventListener('click', function () {
+                this.classList.toggle('active');
+                var dropdownContent = this.nextElementSibling;
+                if (dropdownContent.style.display === 'block') {
+                    dropdownContent.style.display = 'none';
+                } else {
+                    dropdownContent.style.display = 'block';
+                }
+            });
+        }
+
+        // Collapsible content in Contact Us section
+        var collapsibles = document.getElementsByClassName('collapsible');
+        for (var i = 0; i < collapsibles.length; i++) {
+            collapsibles[i].addEventListener('click', function () {
+                this.classList.toggle('active');
+                var content = this.nextElementSibling;
+                if (content.style.display === 'block') {
+                    content.style.display = 'none';
+                } else {
+                    content.style.display = 'block';
+                }
+            });
+        }
+        </script>
+
+</body>
+</html>

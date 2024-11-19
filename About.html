@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About U-Pintar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #FFF6F9;
+            color: #333;
+        }
+
+        /* Navigation Bar Styles (same as Home Page) */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #FF6F91;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            z-index: 1000;
+        }
+
+        .navbar .menu-icon {
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .navbar .logo {
+            width: 70px;
+            height: auto;
+        }
+
+        .navbar .register-btn {
+            background-color: #FFD3B6;
+            color: #FF6F91;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .navbar .register-btn:hover {
+            background-color: #FFEEDD;
+        }
+
+        /* Sidebar Menu Styles (same as Home Page) */
+        .sidebar {
+            position: fixed;
+            left: -250px;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #FF6F91;
+            overflow-y: auto;
+            transition: left 0.3s ease;
+            z-index: 999;
+            padding-top: 60px;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 15px 20px;
+            border-bottom: 1px solid #FFD3B6;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            display: block;
+        }
+
+        .sidebar ul li:hover {
+            background-color: #FFD3B6;
+        }
+
+        /* Dropdown Menu Styles */
+        .sidebar ul li .dropdown-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2em;
+            padding: 0;
+            width: 100%;
+            text-align: left;
+        }
+
+        .sidebar ul li .dropdown-container {
+            display: none;
+            background-color: #FF8FA8;
+            padding-left: 20px;
+        }
+
+        .sidebar ul li .dropdown-container a {
+            padding: 10px 0;
+            display: block;
+            font-size: 1em;
+        }
+
+        /* First Section */
+        .section-1 {
+            background-color: #FFD3B6;
+            padding: 60px 20px;
+            position: relative;
+        }
+
+        .section-1 h1 {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.5em;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+
+        .section-1 img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Second Section */
+        .section-2 {
+            background-color: #FFF0D1;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .section-2 h2 {
+            font-size: 2.2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .section-2 img {
+            width: 60%;
+            height: auto;
+            border-radius: 15px;
+        }
+
+        .section-2 p {
+            font-size: 1.2em;
+            color: #333;
+            text-align: justify;
+            width: 90%;
+            margin: 20px auto;
+        }
+
+        /* Third Section (Same as Second) */
+        .section-3 {
+            background-color: #FFEEDD;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .section-3 h2 {
+            font-size: 2.2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .section-3 img {
+            width: 40%;
+            height: auto;
+            border-radius: 15px;
+        }
+
+        .section-3 p {
+            font-size: 1.2em;
+            color: #333;
+            text-align: justify;
+            width: 70%;
+            margin: 20px auto;
+        }
+
+        /* Footer (same as Home Page) */
+        footer {
+            background-color: #FF6F91;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Styles */
+        @media (min-width: 768px) {
+            .section-2 img, .section-3 img {
+                width: 30%;
+            }
+
+            .section-2 p, .section-3 p {
+                width: 60%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar (same as Home Page) -->
+    <nav class="navbar">
+        <div class="menu-icon" onclick="toggleSidebar()">&#9776;</div>
+        <img src="FYP2 Pic/Logo.png" alt="Logo" class="logo">
+        <button class="register-btn" onclick="window.location.href='enrollment.html'">Register Now</button>
+    </nav>
+
+    <!-- Sidebar Menu (same as Home Page) -->
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li>
+                <button class="dropdown-btn">Admission
+                    <span>&#9660;</span>
+                </button>
+                <div class="dropdown-container">
+                    <a href="enrollment.html">Enrollment</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </li>
+            <li><a href="Branch.html">Branch Location</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+
+    <!-- First Section (like Home Page) -->
+    <div class="section-1" id="home">
+        <h1>ABOUT US</h1>
+        <img src="FYP2 Pic/p3p4.jpg" alt="U-Pintar Welcome Image">
+        <p></p>
+    </div>
+
+    <!-- Second Section -->
+    <div class="section-2">
+        <h2>ABOUT U-PINTAR</h2>
+        
+        <img src="FYP2 Pic/pic2.jpg" alt="Mission Image">
+        <p>&nbsp;</p>
+        <p>The initial involvement in running the Nursery and Kindergarten began in 2001. Armed with the desire and determination to do business while doing charity, planning began to open a childcare center that would not only nurture and educate children well, but also provide services at reasonable prices. By providing comfortable and safe facilities for children, Puan Azah opened her first kindergarten and daycare under the name of Mawaddah Daycare and Nursery, which began operations on June 13, 2001, located in Puchong Indah, Selangor. In order to meet the growing needs, this Nursery and Kindergarten continued to expand its wings by adding an operational branch in Kota Perdana Seri Kembangan in 2002 and then opening a branch in Pinggiran Putra Seri Kembangan in 2004. This kindergarten also provides an early education place for children who aged 4 to 6 years in preparation for entering the real world of schooling. While the Nursery provides an educational space for early development of 
+            children through planned activities.Starting on January 1, 2015, the Management has reorganized the organizational structure and rebranded the Nursery and Kindergarten with the name Nursery and Kindergarten U Pintar. The re-branding was carried out to follow the development of the times that are increasingly circulating as well as building an identity that is more geared towards a more traditional Islamic education through the latest learning system.</p>
+    </div>
+
+    <!-- Third Section -->
+    <div class="section-3">
+        <h2>ENTREPRENEUR OF UNI PINTAR ISLAMIC KINDERGARTEN</h2>
+        <img src="FYP2 Pic/p3p6.jpg" alt="Vision Image">
+        <p>MADAM AZAH JUNAIDAH MD. SHAH</p>
+        <p>
+            Puan Azah Junaidah is a wife and mother of 7 children. Beginning the story of the establishment of the first Nursery, in 2001 and continuing to grow until now, Puan Azah has been involved in the field of childcare and early childhood education for 16 years. As a visionary entrepreneur, it is Puan Azah's desire that the childcare centers, nurseries and kindergartens that she operates, can produce future heirs who are skilled, have personality and are able to apply the values ​​of pious and pious children. The learning activities also emphasize the safety and comfort factor of the children without having to burden the parents with a high burden of expenses. She holds a Diploma in Early Childhood Education and Basic Child Care Courses in addition to participating in many different types of courses related to child development organized by various related agencies. She was once invited as a part-time Lecturer at Sultan Idris Teaching University Tanjung Malim Perak. He intends to continue  to be an active member of the community in providing quality and Islamic early childhood education options for children at the beginning of learning age.
+        </p>
+    </div>
+
+    <!-- Footer (same as Home Page) -->
+    <footer>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="admission.html">Admission</a>
+        <a href="Branch.html">Branches</a>
+    </footer>
+
+    <!-- JavaScript for Menu and Collapsible -->
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+
+        // Dropdown functionality in sidebar
+        var dropdownBtns = document.getElementsByClassName('dropdown-btn');
+        for (var i = 0; i < dropdownBtns.length; i++) {
+            dropdownBtns[i].addEventListener('click', function () {
+                this.classList.toggle('active');
+                var dropdownContent = this.nextElementSibling;
+                if (dropdownContent.style.display === 'block') {
+                    dropdownContent.style.display = 'none';
+                } else {
+                    dropdownContent.style.display = 'block';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
