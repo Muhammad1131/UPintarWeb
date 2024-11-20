@@ -66,23 +66,34 @@ $data = [
     "paymentPhoto" => $paymentPhoto
 ];
 
-// Send data to Supabase using cURL
-$apiUrl = "$supabaseUrl/rest/v1/Enrollment"; // Supabase REST endpoint
-$ch = curl_init($apiUrl);
-curl_setopt($ch, CURLOPT_HTTPHEADER, [
-    "apikey: $supabaseKey",
-    "Content-Type: application/json",
-    "Authorization: Bearer $supabaseKey"
-]);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+// Function to insert data into Supabase
+function insertDataIntoSupabase($data, $supabaseUrl, $supabaseKey)
+{
+    $url = $supabaseUrl . '/rest/v1/enrollment'; // Adjust the table name as per your database
+    $headers = [
+        "Authorization: Bearer $supabaseKey",
+        "Content-Type: application/json"
+    ];
 
-$response = curl_exec($ch);
-if (curl_errno($ch)) {
-    echo "Error: " . curl_error($ch);
-} else {
-    echo "Registration Successful! Response: $response";
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+    $response = curl_exec($ch);
+    curl_close($ch);
+
+    return $response;
 }
-curl_close($ch);
+
+// Insert data into Supabase
+$response = insertDataIntoSupabase($data, $supabaseUrl, $supabaseKey);
+
+// Check response
+if ($response) {
+    echo "Enrollment Successful!";
+} else {
+    echo "Error occurred. Please try again.";
+}
 ?>
