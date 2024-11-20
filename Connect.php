@@ -96,4 +96,7 @@ if ($response) {
 } else {
     echo "Error occurred. Please try again.";
 }
+
+$url = getenv('SUPABASE_URL');
+$key = getenv('SUPABASE_KEY');
 ?>
